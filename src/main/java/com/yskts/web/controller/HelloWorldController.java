@@ -14,6 +14,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class HelloWorldController {
 
+    /**
+     * Get method for JSP view.
+     * 
+     * @return 
+     */
     @RequestMapping(value = MvcConstants.HelloWorld.URL, method = RequestMethod.GET)
     public String doGet() {
 

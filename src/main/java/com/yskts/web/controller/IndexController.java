@@ -11,13 +11,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
- *
+ * Controller for Index view.
+ * 
  * @author niwong
  */
 @Controller
 public class IndexController {
     private static final String GREETING = "Hello World!";
     
+    /**
+     * Get method for Index view.
+     * 
+     * @param model
+     * @return 
+     */
     @RequestMapping(value = MvcConstants.Index.URL, method = RequestMethod.GET)
     public String doGet(Model model) {
         
