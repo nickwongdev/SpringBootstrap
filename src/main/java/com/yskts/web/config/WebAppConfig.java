@@ -15,5 +15,4 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @ComponentScan("com.yskts.web.controller")
 public class WebAppConfig {
 
-
 }

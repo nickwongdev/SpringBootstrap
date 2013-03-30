@@ -52,6 +52,7 @@ public class WebAppInit implements WebApplicationInitializer {
                 new DispatcherServlet(rootContext));
         
         // Listen for request patterns
+        appServlet.setLoadOnStartup(1);
         appServlet.addMapping(SERVLET_MAPPING);
     }
 }

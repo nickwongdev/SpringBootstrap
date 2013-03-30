@@ -7,6 +7,8 @@ package com.yskts.web.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
+import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 
 /**
  * Spring configuration class for setting up all the view resolvers.
@@ -20,17 +22,52 @@ public class ViewResolvers {
     public static final String JSP_PREFIX = "/WEB-INF/jsp/";
     public static final String JSP_SUFFIX = ".jsp";
     
+    // Freemarker View Resolver Strings and Config
+    public static final String FTL_PREFIX = "";
+    public static final String FTL_SUFFIX = ".ftl";
+    public static final String FTL_TEMPLATE_PATH = "/WEB-INF/freemarker/";
+    
+    /**
+     * Creates a Freemarker View Resolver.
+     * 
+     * @return
+     */
+    @Bean
+    public FreeMarkerViewResolver ftlViewResolver() {
+
+        FreeMarkerViewResolver viewResolver = new FreeMarkerViewResolver();
+        viewResolver.setPrefix(FTL_PREFIX);
+        viewResolver.setSuffix(FTL_SUFFIX);
+        viewResolver.setOrder(1);
+        return viewResolver;
+    }
+    
+    /**
+     * Creates a basic Freemarker config.
+     * 
+     * @return 
+     */
+    @Bean
+    public FreeMarkerConfigurer freemarkerConfigurer() {
+        
+        FreeMarkerConfigurer freemarkerConfigurer = new FreeMarkerConfigurer();
+        freemarkerConfigurer.setTemplateLoaderPath(FTL_TEMPLATE_PATH);
+        return freemarkerConfigurer;
+    }
+    
     /**
      * Creates a JSP view resolver.
      * 
      * @return
      */
     @Bean
-    public InternalResourceViewResolver configureInternalResourceViewResolver() {
+    public InternalResourceViewResolver jspViewResolver() {
 
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
         viewResolver.setPrefix(JSP_PREFIX);
         viewResolver.setSuffix(JSP_SUFFIX);
+        viewResolver.setOrder(2);
         return viewResolver;
     }
+
 }
