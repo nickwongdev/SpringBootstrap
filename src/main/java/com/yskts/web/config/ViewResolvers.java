@@ -25,7 +25,6 @@ public class ViewResolvers {
     // Freemarker View Resolver Strings and Config
     public static final String FTL_PREFIX = "";
     public static final String FTL_SUFFIX = ".ftl";
-    public static final String FTL_TEMPLATE_PATH = "/WEB-INF/freemarker/";
     
     /**
      * Creates a Freemarker View Resolver.
@@ -43,19 +42,6 @@ public class ViewResolvers {
     }
     
     /**
-     * Creates a basic Freemarker config.
-     * 
-     * @return 
-     */
-    @Bean
-    public FreeMarkerConfigurer freemarkerConfigurer() {
-        
-        FreeMarkerConfigurer freemarkerConfigurer = new FreeMarkerConfigurer();
-        freemarkerConfigurer.setTemplateLoaderPath(FTL_TEMPLATE_PATH);
-        return freemarkerConfigurer;
-    }
-    
-    /**
      * Creates a JSP view resolver.
      * 
      * @return
@@ -69,5 +55,4 @@ public class ViewResolvers {
         viewResolver.setOrder(2);
         return viewResolver;
     }
-
 }

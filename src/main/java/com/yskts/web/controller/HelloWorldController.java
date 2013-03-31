@@ -1,6 +1,6 @@
 package com.yskts.web.controller;
 
-import com.yskts.web.constant.MvcConstants;
+import com.yskts.web.constant.MvcConstants.HelloWorld;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,9 +19,9 @@ public class HelloWorldController {
      * 
      * @return 
      */
-    @RequestMapping(value = MvcConstants.HelloWorld.URL, method = RequestMethod.GET)
+    @RequestMapping(value = HelloWorld.URL, method = RequestMethod.GET)
     public String doGet() {
 
-        return MvcConstants.HelloWorld.VIEW;
+        return HelloWorld.VIEW;
     }
 }
