@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
- * Controller for simple Hello World view. 
- * 
+ * Controller for simple Hello World view.
+ *
  * @author nwong
  * @since 3/29/13
  */
@@ -16,8 +16,8 @@ public class HelloWorldController {
 
     /**
      * Get method for JSP view.
-     * 
-     * @return 
+     *
+     * @return
      */
     @RequestMapping(value = HelloWorld.URL, method = RequestMethod.GET)
     public String doGet() {

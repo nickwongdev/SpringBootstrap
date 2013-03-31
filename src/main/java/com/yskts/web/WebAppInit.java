@@ -9,11 +9,11 @@ import org.springframework.web.context.support.AnnotationConfigWebApplicationCon
 import org.springframework.web.servlet.DispatcherServlet;
 
 /**
- * Initializes the Web Application. 
- * 
+ * Initializes the Web Application.
+ *
  * <p>I treat this class like a Main class in a traditional Java application as
  * it is basically the startup routine for the application. </p>
- * 
+ *
  * <p>This class uses the Spring AnnotationConfigWebApplicationContext to build
  * a Servlet and direct Spring to the Java config for the application.</p>
  *
@@ -28,18 +28,18 @@ public class WebAppInit implements WebApplicationInitializer {
 
     /**
      * Sets up the WebApplicationContext when the application starts up.
-     * 
+     *
      * @param servletContext
      * @throws ServletException
      */
     @Override
     public void onStartup(final ServletContext servletContext) throws ServletException {
-
-        assert servletContext != null;
         
+        assert servletContext != null;
+
         // Get a Spring AnnotationConfigWebApplicationContext
         AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
-        
+
         // Scan and read the Java configuration classes
         rootContext.scan(CONFIG_SCAN);
 
@@ -50,7 +50,7 @@ public class WebAppInit implements WebApplicationInitializer {
         ServletRegistration.Dynamic appServlet = servletContext.addServlet(
                 APP_SERVLET,
                 new DispatcherServlet(rootContext));
-        
+
         // Listen for request patterns
         appServlet.setLoadOnStartup(1);
         appServlet.addMapping(SERVLET_MAPPING);
