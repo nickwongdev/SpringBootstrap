@@ -11,8 +11,8 @@ package com.yskts.web.constant;
  * @since 3/29/13
  */
 public class MvcConstants {
-    public class HelloWorld {
-        public static final String URL = "/helloworld";
+    public class Employee {
+        public static final String URL = "/employee/{employeeId}";
         public static final String VIEW = "hello-world";
     }
 }

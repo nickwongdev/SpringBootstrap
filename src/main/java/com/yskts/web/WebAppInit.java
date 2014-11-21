@@ -24,7 +24,7 @@ public class WebAppInit implements WebApplicationInitializer {
     
     public static final String CONFIG_SCAN = "com.yskts.web.config";
     public static final String APP_SERVLET = "appServlet";
-    public static final String SERVLET_MAPPING = "*.html";
+    public static final String SERVLET_MAPPING = "/";
 
     /**
      * Sets up the WebApplicationContext when the application starts up.
@@ -53,5 +53,7 @@ public class WebAppInit implements WebApplicationInitializer {
         
         // Listen for request patterns
         appServlet.addMapping(SERVLET_MAPPING);
+
+        System.out.println("Initialized App!");
     }
 }
